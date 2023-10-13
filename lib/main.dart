@@ -33,6 +33,7 @@ class HomePage extends StatelessWidget {
       create: (context) => AppBloc(
         loginApi: LoginApi(),
         notesApi: NotesApi(),
+        acceptableLoginHandle: const LoginHandle.fooBar(),
       ),
       child: Scaffold(
           appBar: AppBar(
@@ -57,7 +58,7 @@ class HomePage extends StatelessWidget {
               }
               final logeinError = appState.logingError;
               if (logeinError != null) {
-                showGenericDialog(
+                showGenericDialog<bool>(
                   context: context,
                   title: loginErrorDialogTitle,
                   content: loginErrorDialogContent,
